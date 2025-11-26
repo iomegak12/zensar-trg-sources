@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 
 from dotenv import load_dotenv
-from langchain_openai import AzureChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 
 def main():
@@ -29,20 +29,15 @@ def main():
         csv_path = "../lc-training-data/hr-employees-attritions-internet.csv"
         df = pd.read_csv(csv_path)
 
-        azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-        azure_api_key = os.getenv("AZURE_OPENAI_API_KEY")
-        azure_deployment = os.getenv("AZURE_DEPLOYMENT_NAME")
-        azure_api_version = os.getenv("AZURE_API_VERSION")
+        openai_api_key = os.getenv("OPENAI_API_KEY")
         temperature = 0.8
         max_tokens = 1000
 
-        llm = AzureChatOpenAI(
-            azure_endpoint=azure_endpoint,
-            api_key=azure_api_key,
-            azure_deployment=azure_deployment,
-            api_version=azure_api_version,
+        llm = ChatOpenAI(
             temperature=temperature,
-            max_tokens=max_tokens
+            max_tokens=max_tokens,
+            model_name="gpt-4o",
+            openai_api_key=openai_api_key,
         )
         
         agent = create_pandas_dataframe_agent(
