@@ -1,0 +1,34 @@
+name: products-management
+
+services:
+  products-mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: products-mcp-server
+    image: iomega/zensar-products-mcp:latest
+    restart: unless-stopped
+    ports:
+      - "50000:50000"
+    env_file:
+      - .env.docker
+    volumes:
+      # Persist database
+      - products-data:/app/dbs
+      # Mount .env file if you want to override environment variables
+      # - ./.env:/app/.env:ro
+    networks:
+      - products-network
+    labels:
+      - "com.zensar.description=Products Management MCP Server"
+      - "com.zensar.service=mcp-server"
+
+volumes:
+  products-data:
+    driver: local
+    name: products-mcp-data
+
+networks:
+  products-network:
+    driver: bridge
+    name: products-mcp-network

@@ -1,10 +1,23 @@
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import AzureOpenAIEmbeddings
 from pypdf import PdfReader
 from langchain.schema import Document
 from langchain_pinecone import PineconeVectorStore
 from dotenv import load_dotenv
 
 import os
+
+
+load_dotenv(override=True)
+
+azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+azure_api_key = os.getenv("AZURE_OPENAI_API_KEY")
+azure_deployment = os.getenv("AZURE_DEPLOYMENT_NAME")
+azure_api_version = os.getenv("AZURE_API_VERSION")
+azure_embedding_deployment = os.getenv(
+    "AZURE_EMBEDDING_DEPLOYMENT_NAME", "text-embedding-3-large")
+
+if not azure_endpoint or not azure_api_key or not azure_deployment or not azure_api_version:
+    raise ValueError("Azure OpenAI environment variables are not set.")
 
 
 def get_pdf_text(pdf_document):
@@ -38,10 +51,12 @@ def create_documents(pdf_files):
 
 
 def create_embeddings():
-    embeddings = OpenAIEmbeddings(
-        model="text-embedding-3-large",
-        dimensions=1024,
-    )
+    embeddings = AzureOpenAIEmbeddings(azure_endpoint=azure_endpoint,
+                                       model="text-embedding-3-large",
+                                       api_key=azure_api_key,
+                                       deployment=azure_embedding_deployment,
+                                       dimensions=3072,
+                                       )
 
     return embeddings
 
@@ -57,7 +72,6 @@ def push_documents_to_pinecone(index_name, embeddings, documents):
 
 def main():
     try:
-        load_dotenv()
 
         index_name = os.environ["PINECONE_INDEX_NAME"]
         directory_name = "../lc-training-data/rag-docs"

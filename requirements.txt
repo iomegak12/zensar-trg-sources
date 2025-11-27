@@ -18,11 +18,10 @@ unstructured
 langchain-unstructured
 
 langchain-pinecone
-pinecone-client
+pinecone>=6.0.0,<8.0.0
 
 # unstructured
 # langchain-pinecone
-# pinecone-client
 # streamlit
 
 langchain-ollama
