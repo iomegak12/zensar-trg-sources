@@ -1,0 +1,78 @@
+services:
+  agentic-rag-api:
+    build: .
+    ports:
+      - "50000:50000"
+    environment:
+      - API_PORT=50000
+      - ENVIRONMENT=production
+      - RATE_LIMIT_ENABLED=false
+      - CORS_ENABLED=true
+      - CORS_ORIGINS=*
+      - LOG_LEVEL=INFO
+      # Add your Azure OpenAI credentials here or use .env file if it exists
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
+      - AZURE_DEPLOYMENT_NAME=${AZURE_DEPLOYMENT_NAME:-gpt-4o}
+      - AZURE_API_VERSION=${AZURE_API_VERSION:-2025-01-01-preview}
+      - GOOGLE_SERPER_API_KEY=${GOOGLE_SERPER_API_KEY}
+      - SERPER_API_KEY=${SERPER_API_KEY}
+      - VECTOR_STORE_URLS_FILE=urls.txt
+      - DEFAULT_URLS_FALLBACK=true
+      - USER_AGENT=AgenticRAG/1.0 (Educational Research Tool)
+    # Uncomment the following lines if you have a .env file
+    # env_file:
+    #   - .env
+    volumes:
+      - ./urls.txt:/app/urls.txt:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:50000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - agentic-rag-network
+
+  # Optional: Prometheus for metrics collection
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+    networks:
+      - agentic-rag-network
+    profiles:
+      - monitoring
+
+  # Optional: Grafana for metrics visualization
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    restart: unless-stopped
+    networks:
+      - agentic-rag-network
+    profiles:
+      - monitoring
+
+networks:
+  agentic-rag-network:
+    driver: bridge
+
+volumes:
+  grafana-storage:

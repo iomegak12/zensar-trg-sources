@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>About Us - Agentic RAG</title>
+    <link rel="icon" type="image/svg+xml" href="/static/images/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css" rel="stylesheet"/>
+    <link href="/static/css/custom.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="page">
+        <!-- Header -->
+        <header class="navbar navbar-expand-md navbar-light d-print-none">
+            <div class="container-xl">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href="/ui">
+                        <img src="/static/images/logo.svg" width="32" height="32" alt="Agentic RAG" class="navbar-brand-image">
+                        Agentic RAG
+                    </a>
+                </h1>
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown">
+                            <span class="avatar avatar-sm" style="background-image: url(/static/images/avatar.jpg)"></span>
+                            <div class="d-none d-xl-block ps-2">
+                                <div>Enterprise User</div>
+                                <div class="mt-1 small text-muted">AI Assistant</div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <a href="/docs" class="dropdown-item">API Documentation</a>
+                            <a href="/health" class="dropdown-item">System Health</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="/metrics" class="dropdown-item">Metrics</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ui">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="m0 0h24v24H0z" fill="none"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="m5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="m9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg>
+                                    </span>
+                                    <span class="nav-link-title">Welcome</span>
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/ui/about">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="m0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                    </span>
+                                    <span class="nav-link-title">About Us</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ui/contact">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="m0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/><polyline points="3,7 12,13 21,7"/></svg>
+                                    </span>
+                                    <span class="nav-link-title">Contact</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ui/chat">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="m0 0h24v24H0z" fill="none"/><path d="M8 9h8"/><path d="M8 13h6"/><path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z"/></svg>
+                                    </span>
+                                    <span class="nav-link-title">Chat</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page content -->
+        <div class="page-wrapper">
+            <div class="page-header d-print-none">
+                <div class="container-xl">
+                    <div class="row g-2 align-items-center">
+                        <div class="col">
+                            <div class="page-pretitle">Enterprise AI Solution</div>
+                            <h2 class="page-title">About Agentic RAG</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page body -->
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="row row-deck row-cards">
+                        <!-- Project Overview -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Project Overview</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="lead">
+                                        Agentic RAG is a production-ready Retrieval-Augmented Generation system that combines 
+                                        the power of large language models with enterprise-grade architecture and best practices.
+                                    </p>
+                                    <p>
+                                        Built with LangChain, LangGraph, and FastAPI, our system features self-reflective capabilities, 
+                                        comprehensive safety guardrails, and multi-source knowledge integration. The architecture 
+                                        follows enterprise standards with monitoring, logging, and deployment automation.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Architecture -->
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">System Architecture</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <h4>Core Components</h4>
+                                            <ul class="list-unstyled space-y-1">
+                                                <li class="d-flex align-items-center">
+                                                    <span class="avatar avatar-xs bg-primary-lt me-2"></span>
+                                                    <strong>FastAPI Server:</strong> High-performance async API
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <span class="avatar avatar-xs bg-success-lt me-2"></span>
+                                                    <strong>LangChain:</strong> LLM application framework
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <span class="avatar avatar-xs bg-warning-lt me-2"></span>
+                                                    <strong>LangGraph:</strong> Agent workflow orchestration
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <span class="avatar avatar-xs bg-info-lt me-2"></span>
+                                                    <strong>Azure OpenAI:</strong> GPT-4 and embedding models
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4>Data Sources</h4>
+                                            <ul class="list-unstyled space-y-1">
+                                                <li class="d-flex align-items-center">
+                                                    <span class="avatar avatar-xs bg-purple-lt me-2"></span>
+                                                    <strong>Vector Store:</strong> FAISS-powered document retrieval
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <span class="avatar avatar-xs bg-teal-lt me-2"></span>
+                                                    <strong>Wikipedia:</strong> Encyclopedic knowledge
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <span class="avatar avatar-xs bg-pink-lt me-2"></span>
+                                                    <strong>Google Search:</strong> Real-time web information
+                                                </li>
+                                                <li class="d-flex align-items-center">
+                                                    <span class="avatar avatar-xs bg-orange-lt me-2"></span>
+                                                    <strong>Arxiv:</strong> Scientific research papers
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack -->
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Technology Stack</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h5>Backend</h5>
+                                        <div class="tags">
+                                            <span class="tag tag-blue">Python 3.11</span>
+                                            <span class="tag tag-green">FastAPI</span>
+                                            <span class="tag tag-purple">LangChain</span>
+                                            <span class="tag tag-orange">LangGraph</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5>AI & ML</h5>
+                                        <div class="tags">
+                                            <span class="tag tag-cyan">Azure OpenAI</span>
+                                            <span class="tag tag-pink">FAISS</span>
+                                            <span class="tag tag-lime">Pydantic v2</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h5>Infrastructure</h5>
+                                        <div class="tags">
+                                            <span class="tag tag-indigo">Docker</span>
+                                            <span class="tag tag-teal">Prometheus</span>
+                                            <span class="tag tag-yellow">Uvicorn</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5>Frontend</h5>
+                                        <div class="tags">
+                                            <span class="tag tag-red">HTML5</span>
+                                            <span class="tag tag-blue">CSS3</span>
+                                            <span class="tag tag-orange">JavaScript</span>
+                                            <span class="tag tag-purple">Tabler UI</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Structure -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Project Structure</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h4>Core System</h4>
+                                            <pre class="code"><code>src/agentic_rag/
+├── __init__.py           # Package entry point
+├── config.py             # Configuration management
+├── prompts.py            # Centralized prompts
+├── main.py               # Main AgenticRAG class
+├── core/                 # Core workflow components
+│   ├── state.py          # State management
+│   ├── nodes.py          # Workflow nodes
+│   ├── workflow.py       # LangGraph workflow
+│   └── generator.py      # Response generation
+├── tools/                # External tools
+│   ├── search_tools.py   # Wikipedia, Google, Arxiv
+│   └── retriever_tools.py # Vector store retrieval
+├── guardrails/           # Safety mechanisms
+│   ├── input_guard.py    # Input validation
+│   └── output_guard.py   # Output safety
+└── graders/              # Quality assessment
+    ├── relevance.py      # Document relevance
+    ├── hallucination.py  # Hallucination detection
+    ├── answer_quality.py # Answer quality
+    └── question_rewriter.py # Question improvement</code></pre>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h4>API & Infrastructure</h4>
+                                            <pre class="code"><code>api/
+└── main.py               # FastAPI application
+
+ui/
+├── templates/            # HTML templates
+│   ├── index.html        # Welcome page
+│   ├── about.html        # About page
+│   ├── contact.html      # Contact page
+│   └── chat.html         # Chat interface
+└── static/               # Static assets
+    ├── css/              # Stylesheets
+    ├── js/               # JavaScript files
+    └── images/           # Images and icons
+
+tests/                    # Test suite
+├── agentic-rag-test.py   # Main functionality tests
+└── diagnostic.py         # Import diagnostics
+
+monitoring/               # Monitoring configuration
+└── prometheus.yml        # Prometheus config</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Key Features</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h4>Enterprise Features</h4>
+                                            <ul>
+                                                <li><strong>Production Ready:</strong> Docker containerization with health checks</li>
+                                                <li><strong>Monitoring:</strong> Prometheus metrics and Grafana dashboards</li>
+                                                <li><strong>Security:</strong> Input validation and safety guardrails</li>
+                                                <li><strong>Scalability:</strong> Async architecture with uvicorn workers</li>
+                                                <li><strong>Documentation:</strong> Automatic OpenAPI/Swagger docs</li>
+                                                <li><strong>Configuration:</strong> Environment-based settings</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h4>AI Capabilities</h4>
+                                            <ul>
+                                                <li><strong>Self-Reflection:</strong> Automatic question improvement</li>
+                                                <li><strong>Multi-Tool Routing:</strong> Dynamic source selection</li>
+                                                <li><strong>Quality Grading:</strong> Relevance and hallucination checks</li>
+                                                <li><strong>Safety First:</strong> Content filtering and validation</li>
+                                                <li><strong>Adaptive Workflow:</strong> LangGraph orchestration</li>
+                                                <li><strong>Knowledge Integration:</strong> Multiple data sources</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team Info -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Development Philosophy</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="text-center mb-4">
+                                                <div class="avatar avatar-xl bg-primary-lt mb-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="m0 0h24v24H0z" fill="none"/><path d="M9 12l2 2l4 -4"/><circle cx="12" cy="12" r="9"/></svg>
+                                                </div>
+                                                <h4>Quality First</h4>
+                                                <p class="text-muted">Every component includes comprehensive testing, error handling, and validation to ensure enterprise-grade reliability.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="text-center mb-4">
+                                                <div class="avatar avatar-xl bg-success-lt mb-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="m0 0h24v24H0z" fill="none"/><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M8 8h8v8h-8z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                                                </div>
+                                                <h4>Modular Design</h4>
+                                                <p class="text-muted">Clean separation of concerns allows for easy maintenance, testing, and feature expansion across all system components.</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="text-center mb-4">
+                                                <div class="avatar avatar-xl bg-warning-lt mb-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="m0 0h24v24H0z" fill="none"/><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="16" r="1"/><path d="M7 11v-4a5 5 0 0 1 10 0v4"/></svg>
+                                                </div>
+                                                <h4>Security Focused</h4>
+                                                <p class="text-muted">Multiple layers of safety checks, input validation, and content filtering ensure responsible AI deployment in production.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer footer-transparent d-print-none">
+                <div class="container-xl">
+                    <div class="row text-center align-items-center flex-row-reverse">
+                        <div class="col-lg-auto ms-lg-auto">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    <a href="/docs" class="link-secondary">API Documentation</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="/health" class="link-secondary">System Health</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="/metrics" class="link-secondary">Metrics</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    Copyright &copy; 2025 Agentic RAG. All rights reserved.
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="link-secondary">v1.0</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
+</body>
+</html>

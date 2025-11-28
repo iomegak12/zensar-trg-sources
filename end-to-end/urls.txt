@@ -1,0 +1,9 @@
+# URLs for Vector Store Knowledge Base
+# Add one URL per line. Comments start with #
+# The system will load documents from all these URLs
+
+https://docs.smith.langchain.com
+https://python.langchain.com/docs/
+# Add more URLs as needed
+# https://docs.openai.com/
+# https://platform.openai.com/docs/
