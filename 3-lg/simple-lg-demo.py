@@ -85,7 +85,6 @@ model = AzureChatOpenAI(
 
 model = model.bind_tools([add, subtract, multiply])
 
-
 graph = StateGraph(AgentState)
 graph.add_node("think", model_call)
 
