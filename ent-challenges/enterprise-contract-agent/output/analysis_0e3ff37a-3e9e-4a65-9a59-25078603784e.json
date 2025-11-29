@@ -1,0 +1,73 @@
+{
+  "request_id": "0e3ff37a-3e9e-4a65-9a59-25078603784e",
+  "timestamp": "2025-11-28T18:50:27.131890",
+  "contract_type": "SaaS",
+  "complexity": "Moderate",
+  "confidence": 0.95,
+  "summary": {
+    "key_terms_count": 6,
+    "obligations_count": 2,
+    "risks_count": 3,
+    "red_flags_count": 3
+  },
+  "details": {
+    "key_terms": [
+      {
+        "term": "Services Provided",
+        "description": "Provider agrees to provide access to cloud-based ERP software as per the terms of the Agreement.",
+        "importance": "High"
+      },
+      {
+        "term": "Subscription Plans and Pricing",
+        "description": "Details the pricing structure and features of different subscription plans offered by the Provider.",
+        "importance": "High"
+      },
+      {
+        "term": "Service Level Agreement (SLA)",
+        "description": "Defines uptime guarantees and credits for service outages, outlining the Provider's commitments to service availability.",
+        "importance": "High"
+      },
+      {
+        "term": "Data Security and Privacy",
+        "description": "Outlines the Provider's obligations regarding data encryption, compliance with regulations, and breach notification.",
+        "importance": "High"
+      },
+      {
+        "term": "Limitation of Liability",
+        "description": "Caps the Provider's liability to the fees paid by the Customer in the preceding 12 months, excluding indirect damages.",
+        "importance": "High"
+      },
+      {
+        "term": "Termination for Cause",
+        "description": "Conditions under which either party can terminate the Agreement immediately due to breaches or insolvency.",
+        "importance": "High"
+      }
+    ],
+    "obligations": [
+      "Provider must deliver the Service as described and maintain service levels as per the SLA.",
+      "Customer must pay subscription fees on time and comply with the terms of use."
+    ],
+    "risks": [
+      {
+        "risk_description": "Provider's liability is limited to fees paid in the last 12 months, which may not cover significant losses for the Customer.",
+        "severity": "High",
+        "mitigation": "Negotiate for a higher liability cap or consider additional insurance coverage."
+      },
+      {
+        "risk_description": "Automatic renewal may lead to unintended continuation of service and costs if not monitored.",
+        "severity": "Medium",
+        "mitigation": "Implement a reminder system for the 60-day notice period before renewal."
+      },
+      {
+        "risk_description": "Exclusions in the SLA may lead to dissatisfaction if downtime occurs due to scheduled maintenance or Customer actions.",
+        "severity": "Medium",
+        "mitigation": "Clarify and negotiate the terms of scheduled maintenance and ensure adequate communication."
+      }
+    ],
+    "red_flags": [
+      "No refunds for prepaid unused subscription periods, which may lead to financial loss if the Customer decides to terminate early.",
+      "Provider can modify the Service with 30 days notice, which may lead to unfavorable changes without Customer consent.",
+      "Customer data may be deleted after 90 days post-termination, posing a risk of data loss if not managed properly."
+    ]
+  }
+}

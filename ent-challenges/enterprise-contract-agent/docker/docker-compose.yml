@@ -1,0 +1,117 @@
+version: '3.8'
+
+services:
+  # Contract Analysis Application
+  contract-agent:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: contract-analysis-agent
+    ports:
+      - "8000:8000"  # Prometheus metrics
+      - "8080:8080"  # Application API (if needed)
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4o-mini}
+      - ENABLE_OBSERVABILITY=true
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+      - PROMETHEUS_PORT=8000
+    volumes:
+      - ../sample_contracts:/app/sample_contracts:ro
+      - ../output:/app/output
+    networks:
+      - monitoring
+    depends_on:
+      - otel-collector
+      - prometheus
+
+  # OpenTelemetry Collector
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.107.0
+    container_name: otel-collector
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "4317:4317"   # OTLP gRPC receiver
+      - "4318:4318"   # OTLP HTTP receiver
+      - "8888:8888"   # Prometheus metrics for collector itself
+      - "8889:8889"   # Prometheus exporter metrics
+    networks:
+      - monitoring
+
+  # Prometheus
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+    restart: unless-stopped
+
+  # Grafana
+  grafana:
+    image: grafana/grafana:11.2.0
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+    ports:
+      - "3000:3000"
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+  # Jaeger (Distributed Tracing UI)
+  jaeger:
+    image: jaegertracing/all-in-one:1.60
+    container_name: jaeger
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    ports:
+      - "16686:16686"  # Jaeger UI
+      - "14268:14268"  # Jaeger collector HTTP
+      - "14250:14250"  # Jaeger collector gRPC
+    networks:
+      - monitoring
+    restart: unless-stopped
+
+  # Opik (LLM-Native Observability Platform)
+  # opik:
+  #   image: ghcr.io/comet-ml/opik:latest
+  #   container_name: opik
+  #   ports:
+  #     - "5173:5173"  # Opik UI
+  #     - "5174:5174"  # Opik API
+  #   environment:
+  #     - OPIK_BACKEND_URL=http://opik:5174
+  #   volumes:
+  #     - opik-data:/app/data
+  #   networks:
+  #     - monitoring
+  #   restart: unless-stopped
+
+networks:
+  monitoring:
+    driver: bridge
+
+volumes:
+  prometheus-data:
+  grafana-data:
+  opik-data:

@@ -1,0 +1,93 @@
+{
+  "request_id": "03b51341-cda1-48bc-a6a6-99ef30816746",
+  "timestamp": "2025-11-28T16:58:53.537889",
+  "contract_type": "SaaS",
+  "complexity": "Moderate",
+  "confidence": 0.95,
+  "summary": {
+    "key_terms_count": 9,
+    "obligations_count": 2,
+    "risks_count": 4,
+    "red_flags_count": 3
+  },
+  "details": {
+    "key_terms": [
+      {
+        "term": "Services Provided",
+        "description": "Provider agrees to provide access to cloud-based ERP software as per the Agreement.",
+        "importance": "High"
+      },
+      {
+        "term": "Subscription Plans and Pricing",
+        "description": "Details of the pricing structure and payment terms for different service levels.",
+        "importance": "High"
+      },
+      {
+        "term": "Service Level Agreement (SLA)",
+        "description": "Provider guarantees uptime and outlines credits for downtime, with exclusions specified.",
+        "importance": "High"
+      },
+      {
+        "term": "Data Security and Privacy",
+        "description": "Provider's obligations regarding data encryption, compliance, and breach notification.",
+        "importance": "High"
+      },
+      {
+        "term": "Intellectual Property",
+        "description": "All software and related materials remain the property of the Provider; Customer receives a limited license.",
+        "importance": "Medium"
+      },
+      {
+        "term": "Term and Termination",
+        "description": "Details on the duration of the Agreement, renewal, and termination rights.",
+        "importance": "High"
+      },
+      {
+        "term": "Limitation of Liability",
+        "description": "Limits Provider's liability to the fees paid in the preceding 12 months and excludes indirect damages.",
+        "importance": "High"
+      },
+      {
+        "term": "Modifications",
+        "description": "Provider can modify the Service with notice; allows Customer to terminate for material adverse changes.",
+        "importance": "Medium"
+      },
+      {
+        "term": "Governing Law",
+        "description": "Specifies that the Agreement is governed by New York law.",
+        "importance": "Low"
+      }
+    ],
+    "obligations": [
+      "Provider must deliver the Service as described, maintain uptime, ensure data security, and notify of breaches.",
+      "Customer must pay fees on time and comply with the terms of use."
+    ],
+    "risks": [
+      {
+        "risk_description": "Provider's liability is limited to fees paid, which may not cover significant losses.",
+        "severity": "High",
+        "mitigation": "Negotiate for a higher liability cap or include specific indemnity clauses."
+      },
+      {
+        "risk_description": "Automatic renewal may lead to unintended continuation of service and costs.",
+        "severity": "Medium",
+        "mitigation": "Implement a reminder system for renewal notices and review terms before renewal."
+      },
+      {
+        "risk_description": "Exclusions in SLA may lead to dissatisfaction if downtime occurs due to scheduled maintenance or other exclusions.",
+        "severity": "Medium",
+        "mitigation": "Clarify and negotiate the terms of SLA exclusions to ensure they are reasonable."
+      },
+      {
+        "risk_description": "Customer data may be deleted after 90 days post-termination, risking loss of important information.",
+        "severity": "High",
+        "mitigation": "Ensure a clear data export plan is in place before termination."
+      }
+    ],
+    "red_flags": [
+      "No clear provisions for data ownership post-termination; Customer may lose access to critical data.",
+      "Limitation of liability may expose Customer to significant risk in case of service failure or data breach.",
+      "Automatic renewal clause could lead to unexpected costs without proper oversight."
+    ]
+  }
+}
